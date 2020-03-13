@@ -1,0 +1,5 @@
+input
+=====
+1. run "./ex.py" on local machine
+2. connect to input2@pwnable.kr and enter to /tmp/dev4ndr3w directory
+3. run "python ./local-exploit.py", it's doesn't work at the first time so, you need to try this several times
